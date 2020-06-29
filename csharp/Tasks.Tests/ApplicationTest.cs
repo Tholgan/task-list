@@ -36,9 +36,7 @@ namespace Tasks
 		[Test, Timeout(1000)]
 		public void ShowTest()
         {
-			var actualOutput = console.RetrieveOutput(2);
-			Assert.AreEqual("> ", actualOutput);
-			console.SendInput("show" + Environment.NewLine);
+			Assert.AreEqual("> ", console.ReadLine());
 		}
 
 		[Test, Timeout(1000)]
