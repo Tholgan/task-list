@@ -34,11 +34,16 @@ namespace Tasks
 		}
 
 		[Test, Timeout(1000)]
-		public void ItWorks()
-		{
+		public void ShowTest()
+        {
 			var actualOutput = console.RetrieveOutput(2);
 			Assert.AreEqual("> ", actualOutput);
 			console.SendInput("show" + Environment.NewLine);
+		}
+
+		[Test, Timeout(1000)]
+		public void ItWorks()
+		{
 
 			Execute("show");
 
