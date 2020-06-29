@@ -7,6 +7,8 @@ namespace Tasks
 	[TestFixture]
 	public sealed class ApplicationTest
 	{
+		public const string PROMPT = "> ";
+
 		private FakeConsole console;
 		private System.Threading.Thread applicationThread;
 
@@ -34,7 +36,7 @@ namespace Tasks
 		[Test, Timeout(1000)]
 		public void ShowTest()
         {
-			var actualOutput = Console.Out;
+			var actualOutput = console.RetrieveOutput(2);
 			Assert.AreEqual("> ", actualOutput);
 		}
 
@@ -90,7 +92,7 @@ namespace Tasks
 
 		private void Execute(string command)
 		{
-			Read("> ");
+			Read(PROMPT);
 			Write(command);
 		}
 
