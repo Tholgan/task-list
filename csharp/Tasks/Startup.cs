@@ -6,7 +6,7 @@ namespace Tasks
 {
     class Startup
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             new TaskList(new RealConsole()).Run();
         }
