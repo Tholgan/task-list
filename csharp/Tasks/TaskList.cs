@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Tasks
 {
-    public class TaskList
+	public sealed class TaskList
 	{
 		private const string QUIT = "quit";
 

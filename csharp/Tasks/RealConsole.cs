@@ -4,6 +4,11 @@ namespace Tasks
 {
 	public class RealConsole : IConsole
 	{
+		public string ReadLine()
+		{
+			return Console.ReadLine();
+		}
+
 		public void Write(string format, params object[] args)
 		{
 			Console.Write(format, args);
