@@ -9,19 +9,19 @@ namespace Tasks
 
 		private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
 
-		private long lastId = 0;
+		private long _lastId = 0;
+		private string _command;
 
 		public void Run()
 		{
-			var command = "";
-			while (command != "quit")
+			while (_command != "quit")
             {
 				Console.Write("> ");
-				command = Console.ReadLine();
-				if (command == "quit") {
+				_command = Console.ReadLine();
+				if (_command == "quit") {
 					break;
 				}
-				Execute(command);
+				Execute(_command);
             }
 		}
 
@@ -100,7 +100,7 @@ namespace Tasks
 				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
-			projectTasks.Add(new Task { Id = lastId++, Description = description, Done = false });
+			projectTasks.Add(new Task { Id = _lastId++, Description = description, Done = false });
 		}
 
 		private void Check(string idString)
