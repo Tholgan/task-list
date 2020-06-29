@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Tasks
 {
-    class HelpCommand
-    {
-		public void Action()
+	class HelpCommand : Command
+	{
+		public override void Action()
 		{
 			Console.WriteLine("Commands:");
 			Console.WriteLine("  show");
@@ -16,5 +16,10 @@ namespace Tasks
 			Console.WriteLine("  uncheck <task ID>");
 			Console.WriteLine();
 		}
-	}
+
+        public void Action(string[] args)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
