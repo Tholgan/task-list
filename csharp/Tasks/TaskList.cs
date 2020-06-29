@@ -6,7 +6,6 @@ namespace Tasks
 {
     public class TaskList
 	{
-		private const string QUIT = "quit";
 
 		private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
 		private readonly IConsole console;
@@ -21,9 +20,9 @@ namespace Tasks
 		public void Run()
 		{
 			while (true) {
-				console.Write("> ");
+				Console.Write("> ");
 				var command = Console.ReadLine();
-				if (command == QUIT) {
+				if (command == "quit") {
 					break;
 				}
 				Execute(command);
