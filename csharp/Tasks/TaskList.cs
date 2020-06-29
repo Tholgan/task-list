@@ -22,7 +22,7 @@ namespace Tasks
 		{
 			while (true) {
 				console.Write("> ");
-				var command = console.ReadLine();
+				var command = Console.ReadLine();
 				if (command == QUIT) {
 					break;
 				}
