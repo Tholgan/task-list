@@ -13,14 +13,12 @@ namespace Tasks
 
 		public void Run()
 		{
-			while (true) {
-				Console.Write("> ");
-				var command = Console.ReadLine();
-				if (command == "quit") {
-					break;
-				}
-				Execute(command);
+			Console.Write("> ");
+			var command = Console.ReadLine();
+			if (command == "quit") {
+
 			}
+			Execute(command);
 		}
 
 		private void Execute(string commandLine)
@@ -108,17 +106,6 @@ namespace Tasks
 			}
 
 			identifiedTask.Done = done;
-		}
-
-		private void Help()
-		{
-			Console.WriteLine("Commands:");
-			Console.WriteLine("  show");
-			Console.WriteLine("  add project <project name>");
-			Console.WriteLine("  add task <project name> <task description>");
-			Console.WriteLine("  check <task ID>");
-			Console.WriteLine("  uncheck <task ID>");
-			Console.WriteLine();
 		}
 
 		private void Error(string command)
