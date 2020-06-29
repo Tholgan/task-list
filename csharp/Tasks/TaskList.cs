@@ -32,8 +32,7 @@ namespace Tasks
 		private void Execute(string commandLine)
 		{
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var command = commandRest[0];
-			switch (command) {
+			switch (commandRest[0]) {
 			case "show":
 				Show();
 				break;
@@ -50,7 +49,7 @@ namespace Tasks
 				Help();
 				break;
 			default:
-				Error(command);
+				Error(commandRest[0]);
 				break;
 			}
 		}
