@@ -82,7 +82,7 @@ namespace Tasks
 				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
-			projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false });
+			projectTasks.Add(new Task { Id = lastId++, Description = description, Done = false });
 		}
 
 		private void Check(string idString)
@@ -124,11 +124,6 @@ namespace Tasks
 		private void Error(string command)
 		{
 			Console.WriteLine("I don't know what the command \"{0}\" is.", command);
-		}
-
-		private long NextId()
-		{
-			return ++lastId;
 		}
 	}
 }

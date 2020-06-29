@@ -8,7 +8,7 @@ namespace Tasks
     {
         public static void Main()
         {
-            new TaskList(new RealConsole()).Run();
+            new TaskList().Run();
         }
     }
 }
