@@ -36,6 +36,10 @@ namespace Tasks
 		[Test, Timeout(1000)]
 		public void ItWorks()
 		{
+			var actualOutput = console.RetrieveOutput(2);
+			Assert.AreEqual("> ", actualOutput);
+			console.SendInput("show" + Environment.NewLine);
+
 			Execute("show");
 
 			Execute("add project secrets");
@@ -90,7 +94,6 @@ namespace Tasks
 
 		private void Read(string expectedOutput)
 		{
-			var length = expectedOutput.Length;
 			var actualOutput = console.RetrieveOutput(expectedOutput.Length);
 			Assert.AreEqual(expectedOutput, actualOutput);
 		}
