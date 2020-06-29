@@ -8,14 +8,8 @@ namespace Tasks
 	{
 
 		private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
-		private readonly IConsole console;
 
 		private long lastId = 0;
-
-		public TaskList(IConsole console)
-		{
-			this.console = console;
-		}
 
 		public void Run()
 		{
@@ -57,11 +51,11 @@ namespace Tasks
 		private void Show()
 		{
 			foreach (var project in tasks) {
-				console.WriteLine(project.Key);
+				Console.WriteLine(project.Key);
 				foreach (var task in project.Value) {
-					console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
+					Console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
 				}
-				console.WriteLine();
+				Console.WriteLine();
 			}
 		}
 
@@ -110,7 +104,7 @@ namespace Tasks
 				.Where(task => task != null)
 				.FirstOrDefault();
 			if (identifiedTask == null) {
-				console.WriteLine("Could not find a task with an ID of {0}.", id);
+				Console.WriteLine("Could not find a task with an ID of {0}.", id);
 				return;
 			}
 
@@ -119,18 +113,18 @@ namespace Tasks
 
 		private void Help()
 		{
-			console.WriteLine("Commands:");
-			console.WriteLine("  show");
-			console.WriteLine("  add project <project name>");
-			console.WriteLine("  add task <project name> <task description>");
-			console.WriteLine("  check <task ID>");
-			console.WriteLine("  uncheck <task ID>");
-			console.WriteLine();
+			Console.WriteLine("Commands:");
+			Console.WriteLine("  show");
+			Console.WriteLine("  add project <project name>");
+			Console.WriteLine("  add task <project name> <task description>");
+			Console.WriteLine("  check <task ID>");
+			Console.WriteLine("  uncheck <task ID>");
+			Console.WriteLine();
 		}
 
 		private void Error(string command)
 		{
-			console.WriteLine("I don't know what the command \"{0}\" is.", command);
+			Console.WriteLine("I don't know what the command \"{0}\" is.", command);
 		}
 
 		private long NextId()

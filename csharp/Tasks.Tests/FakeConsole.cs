@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Tasks
 {
-	public class FakeConsole : IConsole
+	public class FakeConsole
 	{
 		private readonly TextReader inputReader;
 		private readonly TextWriter inputWriter;
