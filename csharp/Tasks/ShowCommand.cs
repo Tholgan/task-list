@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Tasks
 {
-	class HelpCommand : Command
-	{
+    class ShowCommand : Command
+    {
+		public ShowCommand()
+        {
+
+        }
         public override void Action(string[] args)
         {
 

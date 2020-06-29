@@ -46,26 +46,33 @@ namespace Tasks
 			}
 		}
 
-		private void Show()
-		{
-			foreach (var project in tasks) {
+        private void Show()
+        {
+			foreach (var project in tasks)
+			{
 				Console.WriteLine(project.Key);
-				foreach (var task in project.Value) {
+				foreach (var task in project.Value)
+				{
 					Console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
 				}
 				Console.WriteLine();
 			}
 		}
 
-		private void Add(string commandLine)
+        private void Help()
+        {
+			Console.WriteLine("Commands:");
+			Console.WriteLine("  show");
+			Console.WriteLine("  add project <project name>");
+			Console.WriteLine("  add task <project name> <task description>");
+			Console.WriteLine("  check <task ID>");
+			Console.WriteLine("  uncheck <task ID>");
+			Console.WriteLine();
+		}
+
+        private void Add(string commandLine)
 		{
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
-			if (subcommandRest[0] == "project") {
-				AddProject(subcommandRest[1]);
-			} else if (subcommandRest[0] == "task") {
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
-				AddTask(projectTask[0], projectTask[1]);
-			}
+
 		}
 
 		private void AddProject(string name)
